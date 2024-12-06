@@ -3,7 +3,7 @@ import React from "react";
 export default () => (
   <div className="birthdayCard">
     <div className="cardFront">
-      <div className="happy">Happy Birthday!</div>
+      <div className="happy">Happy Birthday</div>
       <div className="container">
         <div className="tulip">
           <div className="stem">
