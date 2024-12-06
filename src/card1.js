@@ -29,7 +29,7 @@ export default () => (
         </div>  
     </div>
     <div className="cardInside">
-      <h3 className="back">HAPPY BIRTHDAY vodoo!</h3>
+      <h3 className="back">HAPPY BIRTHDAY Priyanka!</h3>
       <p>Dear Friend,</p>
       <p>
         Happy birthday!! I hope your day is filled with lots of love and
