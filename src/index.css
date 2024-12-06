@@ -1,0 +1,44 @@
+.sunflower {
+    width: 200px;
+    height: 200px;
+    background: yellow;
+    border-radius: 50%;
+    position: relative;
+    margin: 50px auto;
+}
+
+.sunflower::before {
+    content: '';
+    width: 100px;
+    height: 100px;
+    background: brown;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.petal {
+    width: 60px;
+    height: 30px;
+    background: yellow;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform-origin: bottom center;
+}
+
+.petal:nth-child(1) { transform: rotate(0deg) translateX(-50%); }
+.petal:nth-child(2) { transform: rotate(30deg) translateX(-50%); }
+.petal:nth-child(3) { transform: rotate(60deg) translateX(-50%); }
+.petal:nth-child(4) { transform: rotate(90deg) translateX(-50%); }
+.petal:nth-child(5) { transform: rotate(120deg) translateX(-50%); }
+.petal:nth-child(6) { transform: rotate(150deg) translateX(-50%); }
+.petal:nth-child(7) { transform: rotate(180deg) translateX(-50%); }
+.petal:nth-child(8) { transform: rotate(210deg) translateX(-50%); }
+.petal:nth-child(9) { transform: rotate(240deg) translateX(-50%); }
+.petal:nth-child(10) { transform: rotate(270deg) translateX(-50%); }
+.petal:nth-child(11) { transform: rotate(300deg) translateX(-50%); }
+.petal:nth-child(12) { transform: rotate(330deg) translateX(-50%); }
