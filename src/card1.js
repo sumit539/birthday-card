@@ -30,9 +30,8 @@ export default () => (
     </div>
     <div className="cardInside">
       <h3 className="back">HAPPY BIRTHDAY Priyanka!</h3>
-      <p>Hey,</p>
       <p>
-        Happy birthday!! I hope your day is filled with lots of love and
+        Happy birthday!!  I hope your day is filled with lots of love and
         laughter! May all of your birthday wishes come true.
       </p>
       <p className="name">Sumit</p>
