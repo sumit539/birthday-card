@@ -291,7 +291,7 @@
   
   .name {
     position: absolute;
-    bottom: 30px; /* Position it 20px from the bottom */
+    bottom: 40px; /* Position it 20px from the bottom */
     right: 20px; /* Position it 20px from the right */
     font-family: "Tahoma", sans-serif;
     color: #333;
