@@ -1,24 +1,36 @@
-const binUrl = "https://api.jsonbin.io/v3/b/YOUR_BIN_ID";
+const binUrl = "https://api.jsonbin.io/v3/b/67b89ee0acd3cb34a8eb4f64";
 const apiKey = "$2a$10$SjZwuogGpIK.W8u7CM0KkuYfBCbavh1ZT3VWBM0evnZAfo9Vq0Yce"; 
 
 export const logPageView = async () => {
     try {
+        console.log("Fetching JSONBin data...");
+
         // Fetch current data
         const response = await fetch(binUrl, {
             headers: { "X-Master-Key": apiKey }
         });
-        const data = await response.json();
-        
-        let newViews = data.record.views + 1;
-        let timestamp = new Date().toISOString(); // Current time
-        let userIP = await getUserIP(); // Fetch user IP
 
-        // Add new log entry
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        console.log("Raw JSON response:", data);
+
+        // Check if 'record' exists
+        if (!data || !data.record) {
+            throw new Error("Invalid response format: 'record' is missing");
+        }
+
+        let newViews = (data.record.views || 0) + 1;
+        let timestamp = new Date().toISOString();
+        let userIP = await getUserIP();
+
         let newLogEntry = { ip: userIP, timestamp };
-        let updatedLogs = [...data.record.logs, newLogEntry];
+        let updatedLogs = [...(data.record.logs || []), newLogEntry];
 
         // Update JSONBin
-        await fetch(binUrl, {
+        const updateResponse = await fetch(binUrl, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -30,6 +42,11 @@ export const logPageView = async () => {
             })
         });
 
+        if (!updateResponse.ok) {
+            throw new Error(`Update failed! Status: ${updateResponse.status}`);
+        }
+
+        console.log("Updated data successfully:", { views: newViews, logs: updatedLogs });
         return { views: newViews, logs: updatedLogs };
     } catch (error) {
         console.error("Error logging page view:", error);
