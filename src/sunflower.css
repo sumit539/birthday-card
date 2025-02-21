@@ -1,0 +1,146 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #073b4c;
+}
+
+.birthdayCard {
+  position: relative;
+  width: 300px;
+  height: 400px;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transform: perspective(2500px);
+  transition: 1s;
+}
+
+.birthdayCard:hover {
+  transform: perspective(2500px) rotate(5deg);
+  box-shadow: inset 100px 20px 100px rgba(0, 0, 0, 0.2),
+    0 10px 100px rgba(0, 0, 0, 0.5);
+}
+
+.birthdayCard:hover .cardFront {
+  transform: rotateY(-160deg);
+}
+
+.birthdayCard:hover .happy {
+  visibility: hidden;
+}
+
+.cardFront {
+  position: relative;
+  background-color: #fff;
+  width: 300px; 
+  height: 400px; 
+  overflow: hidden;
+  transform-origin: left;
+  box-shadow: inset 100px 20px 100px rgba(0, 0, 0, 0.2),
+    30px 0 50px rgba(0, 0, 0, 0.4);
+  transition: 0.6s;
+}
+
+.happy {
+  font-family: Tahoma, sans-serif;
+  text-align: center;
+  margin: 30px;
+  background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+  padding: 10px 20px;
+  font-size: 24px;
+  border-radius: 10px;
+  transition: 0.2s;
+  backface-visibility: visible;
+}
+
+/* Sunflower styles */
+.sunflowerContainer {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  margin: 30px auto;
+}
+
+.sunflower {
+  position: relative;
+  width: 150px;
+  height: 150px;
+}
+
+/* Sunflower center */
+.sunflowerCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  background-color: #8B4513; /* Brown center */
+  border-radius: 50%;
+  z-index: 2;
+}
+
+/* Sunflower petals */
+.sunflowerPetal {
+  position: absolute;
+  width: 20px;
+  height: 60px;
+  background-color: #FFD700; /* Golden yellow petals */
+  border-radius: 20px;
+  transform-origin: bottom center;
+  z-index: 1;
+}
+
+/* Positioning each petal around the center */
+.petal1 { transform: rotate(0deg) translateY(-60px); }
+.petal2 { transform: rotate(30deg) translateY(-60px); }
+.petal3 { transform: rotate(60deg) translateY(-60px); }
+.petal4 { transform: rotate(90deg) translateY(-60px); }
+.petal5 { transform: rotate(120deg) translateY(-60px); }
+.petal6 { transform: rotate(150deg) translateY(-60px); }
+.petal7 { transform: rotate(180deg) translateY(-60px); }
+.petal8 { transform: rotate(210deg) translateY(-60px); }
+.petal9 { transform: rotate(240deg) translateY(-60px); }
+.petal10 { transform: rotate(270deg) translateY(-60px); }
+.petal11 { transform: rotate(300deg) translateY(-60px); }
+.petal12 { transform: rotate(330deg) translateY(-60px); }
+
+.cardInside {
+  position: absolute;
+  background-color: #fff;
+  width: 300px;
+  height: 400px;
+  z-index: -1;
+  left: 0;
+  top: 0;
+  box-shadow: inset 100px 20px 100px rgba(0, 0, 0, 0.2);
+}
+
+p {
+  font-family: "Brush Script MT", cursive;
+  margin: 30px;
+  color: #333;
+  font-size: 20px;
+}
+
+.name {
+  position: absolute;
+  bottom: 40px;
+  right: 20px;
+  font-family: Tahoma, sans-serif;
+  color: #333;
+  font-size: 18px;
+}
+
+.back {
+  font-family: Tahoma, sans-serif;
+  color: #333;
+  text-align: center;
+  margin: 30px;
+  padding: 10px 20px;
+  outline-color: #333;
+  outline-style: dotted;
+  border-radius: 10px;
+  font-size: 18px;
+}
